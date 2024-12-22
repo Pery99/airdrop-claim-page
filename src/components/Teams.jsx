@@ -6,20 +6,20 @@ const Teams = () => {
     {
       name: "Oluwapelumi Adelabu",
       role: "Founder & CEO",
-      image: "ceo.jpg", 
-      description: "CEO, Dev",
+      image: "ceo.jpg",
+      description: "Dev",
     },
     {
       name: "Pizzy Joshua",
-      role: "Lead Developer",
+      role: "Head of Growth",
       image: "/pizzy.jpg",
-      description: "Blockchain architect, Smart contract specialist",
+      description: "Marketing expert, Community builder",
     },
     {
-      name: "George Mazi",
-      role: "Head of Growth",
+      name: "George Mazi ",
+      role: "Lead Developer",
       image: "/George.jpg",
-      description: "Marketing expert, Community builder",
+      description: "Blockchain architect, Smart contract specialist",
     },
   ];
 
