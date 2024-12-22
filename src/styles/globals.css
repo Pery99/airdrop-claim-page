@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #4E35FF;
+  --primary-dark: #3A25CC;
+  --secondary: #8A6AFF;
+  --bg-dark: #0A0F1C;
+  --bg-dark-secondary: #1A1F2C;
+}
+
+body {
+  background: var(--bg-dark);
+  color: white;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(to bottom right, #0f172a, #1e1b4b, #312e81);
+}
+
+.cyber-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+}
+
+/* Add custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[#4E35FF] to-[#8A6AFF] bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-[#0A0F1C] to-[#1A1F2C];
+}
+
+.primary-button {
+  @apply px-6 py-3 bg-[#4E35FF] hover:bg-[#3A25CC] text-white rounded-full transition-all;
+}
