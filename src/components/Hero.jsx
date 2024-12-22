@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useWeb3React } from "@web3-react/core";
+import Counter from './Counter';
 
 const Hero = () => {
   const { active } = useWeb3React();
@@ -37,21 +38,27 @@ const Hero = () => {
               className="glassmorphism p-6 rounded-2xl border border-white/5"
               whileHover={{ y: -5 }}
             >
-              <div className="text-2xl sm:text-3xl font-bold text-[#4E35FF]">50M</div>
+              <div className="text-2xl sm:text-3xl font-bold text-[#4E35FF]">
+                <Counter from={0} to={50} duration={2} />M $PERY
+              </div>
               <div className="text-sm sm:text-base text-gray-400">Total Supply</div>
             </motion.div>
             <motion.div 
               className="glassmorphism p-6 rounded-2xl border border-white/5"
               whileHover={{ y: -5 }}
             >
-              <div className="text-2xl sm:text-3xl font-bold text-[#4E35FF]">5,000</div>
+              <div className="text-2xl sm:text-3xl font-bold text-[#4E35FF]">
+                <Counter from={0} to={5000} duration={2} />
+              </div>
               <div className="text-sm sm:text-base text-gray-400">$PERY per Wallet</div>
             </motion.div>
             <motion.div 
               className="glassmorphism p-6 rounded-2xl border border-white/5"
               whileHover={{ y: -5 }}
             >
-              <div className="text-2xl sm:text-3xl font-bold text-[#4E35FF]">7 Days</div>
+              <div className="text-2xl sm:text-3xl font-bold text-[#4E35FF]">
+                <Counter from={0} to={7} duration={2} /> Days
+              </div>
               <div className="text-sm sm:text-base text-gray-400">Claim Period</div>
             </motion.div>
           </div>
