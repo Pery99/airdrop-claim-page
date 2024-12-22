@@ -7,7 +7,7 @@ const Teams = () => {
       name: "Oluwapelumi Adelabu",
       role: "Founder & CEO",
       image: "ceo.jpg", 
-      description: "DeFi veteran",
+      description: "CEO, Dev",
     },
     {
       name: "Pizzy Joshua",
