@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeb3React } from "@web3-react/core";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { active, account, activate } = useWeb3React();
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "About", href: "/about" },
-    { name: "Claim", href: "/claim" },
-    { name: "Roadmap", href: "/roadmap" },
-    { name: "Team", href: "/team" },
+    { name: "About", href: "#about" },
+    { name: "Claim", href: "#claim" },
+    { name: "Roadmap", href: "#roadmap" },
+    { name: "Team", href: "#team" },
   ];
 
   return (
@@ -22,28 +21,28 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <Link to="/">
-            <motion.div 
-              className="text-2xl font-bold font-display"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="bg-gradient-to-r from-[#4E35FF] to-[#8A6AFF] bg-clip-text text-transparent">
-                $PERY
-              </span>
-            </motion.div>
-          </Link>
+          {/* Logo */}
+          <motion.a
+            href="#"
+            className="text-2xl font-bold font-display"
+            whileHover={{ scale: 1.05 }}
+          >
+            <span className="bg-gradient-to-r from-[#4E35FF] to-[#8A6AFF] bg-clip-text text-transparent">
+              $PERY
+            </span>
+          </motion.a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <Link key={item.name} to={item.href}>
-                <motion.span
-                  whileHover={{ y: -2 }}
-                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-                >
-                  {item.name}
-                </motion.span>
-              </Link>
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ y: -2 }}
+              >
+                {item.name}
+              </motion.a>
             ))}
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -60,6 +59,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
+            onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white p-2"
           >
             <svg

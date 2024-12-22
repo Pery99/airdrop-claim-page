@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const TokenInfo = () => {
   const tokenMetrics = [
     { label: "Token Name", value: "PERY" },
-    { label: "Token Symbol", value: "$PRY" },
+    { label: "Token Symbol", value: "$PERY" },
     { label: "Total Supply", value: "100,000,000" },
     { label: "Initial Price", value: "$3.50" },
     { label: "Network", value: "Ethereum" },

@@ -1,95 +1,65 @@
 import { motion } from "framer-motion";
 
 const LoadingScreen = () => {
-  const hexagons = Array(6).fill(null);
-  
   return (
-    <div className="fixed inset-0 bg-[#0A0F1C] flex items-center justify-center">
-      <div className="relative">
-        {/* Animated Hexagon Grid */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {hexagons.map((_, index) => (
-            <motion.div
-              key={index}
-              className="absolute w-32 h-32"
-              style={{
-                rotate: `${index * 60}deg`,
-                transformOrigin: "50% 50%"
-              }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{
-                opacity: [0.2, 0.4, 0.2],
-                scale: [0.8, 1, 0.8],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: index * 0.2,
-              }}
-            >
-              <div className="w-full h-full border-2 border-[#4E35FF] rotate-45 transform origin-center" />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Center Logo */}
+    <div className="fixed inset-0 bg-[#0A0F1C] flex flex-col items-center justify-center">
+      {/* Main Container */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="relative flex flex-col items-center"
+      >
+        {/* Logo with Glow Effect */}
         <motion.div
-          className="relative z-10 bg-[#0A0F1C] p-8 rounded-full"
+          className="relative z-10"
+          animate={{ 
+            scale: [1, 1.05, 1],
+            filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        >
+          <div className="text-7xl font-bold gradient-text font-display mb-12 relative">
+            $PERY
+            <div className="absolute inset-0 blur-xl bg-[#4E35FF]/20" />
+          </div>
+        </motion.div>
+
+        {/* Circular Progress */}
+        <motion.div 
+          className="w-16 h-16 rounded-full border-4 border-t-[#4E35FF] border-r-[#4E35FF]/50 border-b-[#4E35FF]/30 border-l-[#4E35FF]/10"
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+
+        {/* Status Text */}
+        <motion.div
+          className="mt-8 text-gray-400 text-lg font-light tracking-wider"
           animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 360],
+            opacity: [0.5, 1, 0.5],
+            y: [0, -5, 0]
           }}
           transition={{
-            duration: 3,
+            duration: 2,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut"
           }}
         >
-          <div className="text-4xl font-bold gradient-text font-display">P</div>
+          INITIALIZING
         </motion.div>
 
-        {/* Orbital Particles */}
-        <div className="absolute inset-0">
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-[#4E35FF] rounded-full"
-              animate={{
-                scale: [0, 1, 0],
-                opacity: [0, 1, 0],
-                x: Math.cos(i * 30) * 100,
-                y: Math.sin(i * 30) * 100,
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: i * 0.1,
-              }}
-            />
-          ))}
+        {/* Background Gradient Orb */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#4E35FF]/10 rounded-full blur-[100px]" />
         </div>
-
-        {/* Loading Text */}
-        <motion.div
-          className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-full text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="text-lg text-gray-400 mb-2">Loading $PERY</div>
-          <motion.div
-            className="h-1 w-32 mx-auto bg-gradient-to-r from-[#4E35FF] to-[#8A6AFF] rounded-full"
-            animate={{
-              scaleX: [0, 1],
-              opacity: [0.5, 1]
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-            }}
-          />
-        </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };
